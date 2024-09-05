@@ -347,18 +347,19 @@ INCLUDEPATH += $$_PRO_FILE_PWD_/dialogmaster
 
 
 
+VVREPO_PATH = $$_PRO_FILE_PWD_/../../../../
 
 
 
 # additions for VVGL lib
-win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../../VVGL/release/ -lVVGL
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../../VVGL/debug/ -lVVGL
-else:unix: LIBS += -L$$OUT_PWD/../../VVGL/ -lVVGL
+win32:CONFIG(release, debug|release): LIBS += -L$$VVREPO_PATH/VVGL/release/ -lVVGL
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$VVREPO_PATH/VVGL/debug/ -lVVGL
+else:unix: LIBS += -L$$VVREPO_PATH/VVGL/bin/ -lVVGL
 
 # additions for VVISF lib
-win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../../VVISF/release/ -lVVISF
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../../VVISF/debug/ -lVVISF
-else:unix: LIBS += -L$$OUT_PWD/../../VVISF/ -lVVISF
+win32:CONFIG(release, debug|release): LIBS += -L$$VVREPO_PATH/VVISF/release/ -lVVISF
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$VVREPO_PATH/VVISF/debug/ -lVVISF
+else:unix: LIBS += -L$$VVREPO_PATH/VVISF/bin/ -lVVISF
 
 INCLUDEPATH += $$_PRO_FILE_PWD_/../../../../VVGL/include
 INCLUDEPATH += $$_PRO_FILE_PWD_/../../../../VVISF/include
@@ -430,7 +431,7 @@ win32	{
 
 
 
-fftreal_dir = ../fftreal
+fftreal_dir = $$_PRO_FILE_PWD_/../fftreal
 
 INCLUDEPATH += $${fftreal_dir}
 
